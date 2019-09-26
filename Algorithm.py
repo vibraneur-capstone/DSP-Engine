@@ -1,9 +1,12 @@
 import importlib
+import sys
+
+sys.path.insert(0, './algorithms')
 
 class Algorithm:
-    def __init__(self, filename, ID):
-        self.filename = ".algorithms." + filename + ".py"
-        self.ID = importlib.import_module(filename)
+    def __init__(self, ID):
+        self.ID = ID
+        self.script = importlib.import_module(ID)
 
-    def run():
-        self.ID.run()
+    def run(self):
+        self.script.run()
