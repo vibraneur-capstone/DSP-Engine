@@ -5,5 +5,5 @@ class Algorithm:
         self.ID = ID
         self.script = importlib.import_module(ID)
 
-    def run(self):
-        self.script.run()
+    def call(self, data):
+        self.script.run(data)
