@@ -3,9 +3,9 @@ class DSPEngine:
     def __init__(self):
         self.algorithms = []
 
-    def run(self):
+    def run(self, data):
         for a in self.algorithms:
-            a.run()
+            a.call(data)
 
     def add(self, algorithm):
         self.algorithms.append(algorithm)
