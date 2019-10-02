@@ -17,7 +17,9 @@ if f.mode == "r":
 
 DSP = DSPEngine.DSPEngine()
 RMS = Algorithm.Algorithm("RMS")
+FFT = Algorithm.Algorithm("FFT")
 
 DSP.add(RMS)
+DSP.add(FFT)
 
 DSP.run(data)
