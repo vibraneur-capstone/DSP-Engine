@@ -1,12 +1,12 @@
 import math
 import statistics
-import src.dto.resultEncapsulation as Vape
-from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
 
-
-def run(data, m4=0, m2=0):
+def run(data):
 
     # Define variables for calculation
+    kurtosis = 0
+    m4 = 0
+    m2 = 0
     mean = statistics.mean(data)
 
     # Summation calculations for fourth moment and variance
@@ -17,6 +17,4 @@ def run(data, m4=0, m2=0):
     # Calculate kurtosis with the fourth moment divided by the square of the variance
     kurtosis = m4 / (m2 ** 2)
 
-    # encapsulate result into ResultEncapsulation object for easier integration
-    return Vape.ResultEncapsulation(result=kurtosis, resultType=SupportedAlgorithms.KURTOSIS)
-
+    print(kurtosis)
