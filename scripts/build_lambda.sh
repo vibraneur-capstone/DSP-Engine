@@ -13,7 +13,7 @@ rm -rf $dep_target_path
 printf "\nInstall dependency \n"
 sleep 3
 
-pip3 install -r requirements.txt --target $dep_target_path
+python3 -m pip install -r requirements.txt --target $dep_target_path
 
 printf "\nPackaging dependency \n"
 sleep 3
