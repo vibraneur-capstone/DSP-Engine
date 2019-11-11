@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class SupportedAlgorithms(Enum):
+class SupportedAlgorithms(str, Enum):
     RMS = 'Root Mean Square'
     KURTOSIS = 'Kurtosis'
     FFT = 'Fast Fourier Transform'

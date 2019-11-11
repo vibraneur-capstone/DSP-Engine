@@ -1,6 +1,26 @@
 import math
+import json
 import src.dto.resultEncapsulation as Vape
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
+
+
+# TODO more http status code to be described
+def lambda_entry(event, context):
+    if 'data' not in event:
+        return {
+            'statusCode': 400,
+            'description': 'missing data'
+        }
+    try:
+        result = run(event['data'])
+    except:
+        return {
+            'statusCode': 500
+        }
+    return {
+        'statusCode': 200,
+        'body': json.dumps(result.toJsonString())
+    }
 
 
 def run(data):

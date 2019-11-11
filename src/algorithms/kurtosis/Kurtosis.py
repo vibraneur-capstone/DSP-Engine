@@ -1,7 +1,25 @@
-import math
+import json
 import statistics
 import src.dto.resultEncapsulation as Vape
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
+
+
+def lambda_entry(event, context):
+    if 'data' not in event:
+        return {
+            'statusCode': 400,
+            'description': 'missing data'
+        }
+    try:
+        result = run(event['data'])
+    except:
+        return {
+            'statusCode': 500
+        }
+    return {
+        'statusCode': 200,
+        'body': json.dumps(result.toJsonString())
+    }
 
 
 def run(data, m4=0, m2=0):
