@@ -29,6 +29,6 @@ steps:
     python3 -m unittest discover -s test -p '*.py'
   displayName: 'Unit test'
 
-#- script: |
-#    ./scripts/build_lambda.sh
-#  displayName: 'Package build'
+- script: |
+    ./scripts/build_lambda.sh
+  displayName: 'Package build'
