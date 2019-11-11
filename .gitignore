@@ -8,3 +8,5 @@ myenv
 __init__.pyc
 .cache
 .pytest_cache
+*-dist.zip
+dsp-aws-lambda-dist.zip
