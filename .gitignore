@@ -10,3 +10,4 @@ __init__.pyc
 .pytest_cache
 *-dist.zip
 dsp-aws-lambda-dist.zip
+external_libraries
