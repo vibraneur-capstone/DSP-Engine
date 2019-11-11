@@ -9,7 +9,7 @@ run `./scripts/init_venv.sh`
 
 ## unit test
 
-    python -m unittest discover -s test -p '*.py'
+    python3 -m unittest discover -s test -p '*.py'
 
 ## Deploy to AWS Lambda
 
