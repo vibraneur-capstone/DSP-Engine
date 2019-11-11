@@ -30,6 +30,7 @@ printf "\nPackaging project modules \n"
 sleep 3
 zip -g -r $dist_name src/*
 
-#printf "\nFinished Building \n"
+printf "\nCleaning up \n"
+rm -rf $dep_target_path
 
-#rm -rf $dep_target_path
+printf "\nFinished Building \n"
