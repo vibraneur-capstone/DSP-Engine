@@ -27,7 +27,6 @@ class MyTestCase(unittest.TestCase):
 
         # Act
         result = objectToTest.lambda_entry(test_event, test_context)
-        print(result)
         # Assert
         assert result['statusCode'] == 200
         parsed_body = result['body']
