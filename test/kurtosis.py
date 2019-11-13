@@ -33,7 +33,8 @@ class MyTestCase(unittest.TestCase):
 
         # Assert
         assert result['statusCode'] == 200
-        parsed_body = json.loads(json.loads(result['body']))
+        parsed_body = result['body']
+
         assert parsed_body['result'] == 18.045134723389662
         assert parsed_body['resultType'] == 'Kurtosis'
         assert parsed_body['timestamp'] is not None

@@ -1,5 +1,4 @@
 import math
-import json
 import src.dto.resultEncapsulation as Vape
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
 
@@ -19,7 +18,7 @@ def lambda_entry(event, context):
         }
     return {
         'statusCode': 200,
-        'body': json.dumps(result.toJsonString())
+        'body': result.toJsonString()
     }
 
 

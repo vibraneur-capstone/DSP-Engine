@@ -22,4 +22,9 @@ class ResultEncapsulation:
         print('Computed Result is: {}'.format(self.result))
 
     def toJsonString(self):
-        return json.dumps(self.__dict__)
+        return {
+            "timestamp": self.timestamp,
+            "result": self.result,
+            "resultType": self.resultType,
+            "description": self.description
+        }

@@ -27,10 +27,10 @@ class MyTestCase(unittest.TestCase):
 
         # Act
         result = objectToTest.lambda_entry(test_event, test_context)
-
+        print(result)
         # Assert
         assert result['statusCode'] == 200
-        parsed_body = json.loads(json.loads(result['body']))
+        parsed_body = result['body']
         assert round(parsed_body['result'], 10) == round(47.7132211299, 10)
         assert parsed_body['resultType'] == 'Root Mean Square'
         assert parsed_body['timestamp'] is not None
