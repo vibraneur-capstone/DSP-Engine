@@ -35,4 +35,4 @@ def run(data):
     rms = math.sqrt(sumOfSquares/len(data))
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    return Vape.ResultEncapsulation(result=rms, resultType=SupportedAlgorithms.RMS)
+    return Vape.ResultEncapsulation(result=rms, inputData=data, resultType=SupportedAlgorithms.RMS)
