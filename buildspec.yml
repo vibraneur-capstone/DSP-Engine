@@ -28,7 +28,6 @@ phases:
       - date=$(date +%Y-%m-%d_%H_%M_%S)
       - cp ./dsp-aws-lambda-dist.zip ./dsp-aws-lambda-dist-$version.zip
       - cp ./swagger/dsp-rest-api-gateway.yaml ./swagger-$version.yaml
-      - cp ./swagger/dsp-rest-api-gateway.yaml ./swagger-dist.yaml
 
 artifacts:
   files:
