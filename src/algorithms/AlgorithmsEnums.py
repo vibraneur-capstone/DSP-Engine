@@ -6,6 +6,7 @@ class SupportedAlgorithms(str, Enum):
     FFT = 'Fast Fourier Transform'
     SFB = 'Sensitive Frequency Band'
     CREST = 'Crest Factor'
+    SHAPE = 'Shape Factor'
 
 
 class AlgorithmID(Enum):
@@ -14,3 +15,4 @@ class AlgorithmID(Enum):
     FFT = 'FFT'
     SFB = 'SFB'
     CREST = 'Crest'
+    SHAPE = 'Shape'
