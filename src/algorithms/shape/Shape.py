@@ -28,13 +28,11 @@ def run(data):
     # Calculate RMS through the square root of the average of the sum of squares
     rms = math.sqrt(sumOfSquares/len(data))
 
-    # Calculate mean value for a segment of data
-    mean = mean(data)
+    # Calculate mean for a segment of data
+    mu = sum(data)/len(data)
 
     # Calculate Shape factor
-    shapeFactor = rms/mean
-
-    print(shapeFactor)
+    shapeFactor = rms/mu
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    return Vape.ResultEncapsulation(result=shapeFactor, inputData=data, resultType=SupportedAlgorithms.CREST)
+    return Vape.ResultEncapsulation(result=shapeFactor, inputData=data, resultType=SupportedAlgorithms.SHAPE)

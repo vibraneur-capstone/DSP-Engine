@@ -14,7 +14,7 @@ class MyTestCase(unittest.TestCase):
             self.testData.append(int(line))
 
         result = objectToTest.run(self.testData)
-        self.assertEqual(round(, 10), round(result.result, 10))
+        self.assertEqual(round(1.5994572525666344, 10), round(result.result, 10))
         self.assertEqual(enums.SHAPE, result.resultType)
         self.assertIsNotNone(result.timestamp)
 
@@ -30,7 +30,7 @@ class MyTestCase(unittest.TestCase):
         # Assert
         assert result['statusCode'] == 200
         parsed_body = result['body']
-        assert round(parsed_body['result'], 10) == round(, 10)
+        assert round(parsed_body['result'], 10) == round(1.5994572525666344, 10)
         assert parsed_body['resultType'] == 'Shape Factor'
         assert parsed_body['timestamp'] is not None
         assert parsed_body['description'] is not None

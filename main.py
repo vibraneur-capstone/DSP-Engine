@@ -25,7 +25,6 @@ RMS = VapeAlgo.Algorithm(AlgorithmID.RMS)
 Kurtosis = VapeAlgo.Algorithm(AlgorithmID.KURTOSIS)
 FFT = VapeAlgo.Algorithm(AlgorithmID.FFT)
 Crest = VapeAlgo.Algorithm(AlgorithmID.CREST)
-
-DSP.add(Crest)
+Shape = VapeAlgo.Algorithm(AlgorithmID.SHAPE)
 
 DSP.run(data)
