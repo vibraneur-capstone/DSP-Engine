@@ -34,7 +34,5 @@ def run(data):
     # Calculate crest factor
     crestFactor = maximum/rms
 
-    print(crestFactor)
-
     # encapsulate result into ResultEncapsulation object for easier integration
     return Vape.ResultEncapsulation(result=crestFactor, inputData=data, resultType=SupportedAlgorithms.CREST)

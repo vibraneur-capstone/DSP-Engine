@@ -18,16 +18,17 @@ def lambda_entry(event, context):
 
 
 def run(data):
-    # Calculates the FFT and converts it to a magnitude spectrum
+    # Calculate magnitude of double sided spectrum
     fft = magnitude(np.fft.fft(data))
 
-    #splits the fft into the single sided spectrum
+    # Splits the FFT into the single sided spectrum
     single_fft = fft[len(fft)//2:]
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    return ResultEncapsulation(result=fft, inputData=data, resultType=SupportedAlgorithms.FFT)
+    return ResultEncapsulation(result=single_fft, inputData=data, resultType=SupportedAlgorithms.FFT)
 
 
+# Takes the absolute value of each element in a complex array and returns a new array
 def magnitude(complex_arr):
     mag = []
     for num in complex_arr:
