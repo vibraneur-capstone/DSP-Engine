@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  version: "2019-12-07T16:53:52Z"
+  version: "2020-02-08T18:30:59Z"
   title: "DSP Engine API"
 host: "api.lambda.dsp-engine.vibraneur.com"
 schemes:
@@ -26,6 +26,62 @@ paths:
         requestTemplates:
           application/json: "{\"statusCode\": 200}"
         type: "mock"
+  /v1/algorithms/crest:
+    post:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "DspDataInput"
+        required: true
+        schema:
+          $ref: "#/definitions/DspDataInput"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/SingleDigitDspDataOutput"
+      x-amazon-apigateway-request-validator: "Validate body"
+      x-amazon-apigateway-integration:
+        credentials: "arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role."
+        uri: "arn:aws:apigateway:us-east-1:lambda:path//2015-03-31/functions/arn:aws:lambda:us-east-1:742872122332:function:crest:dev/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "aws"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        passthroughBehavior: "when_no_match"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        type: "mock"
   /v1/algorithms/fft:
     post:
       consumes:
@@ -46,7 +102,7 @@ paths:
       x-amazon-apigateway-request-validator: "Validate body"
       x-amazon-apigateway-integration:
         credentials: "arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role."
-        uri: "arn:aws:apigateway:us-east-1:lambda:path//2015-03-31/functions/arn:aws:lambda:us-east-1:742872122332:function:fft/invocations"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path//2015-03-31/functions/arn:aws:lambda:us-east-1:742872122332:function:fft:dev/invocations"
         responses:
           default:
             statusCode: "200"
@@ -102,7 +158,7 @@ paths:
       x-amazon-apigateway-request-validator: "Validate body"
       x-amazon-apigateway-integration:
         credentials: "arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role."
-        uri: "arn:aws:apigateway:us-east-1:lambda:path//2015-03-31/functions/arn:aws:lambda:us-east-1:742872122332:function:kurtosis/invocations"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path//2015-03-31/functions/arn:aws:lambda:us-east-1:742872122332:function:kurtosis:dev/invocations"
         responses:
           default:
             statusCode: "200"
@@ -129,7 +185,7 @@ paths:
       x-amazon-apigateway-request-validator: "Validate body"
       x-amazon-apigateway-integration:
         credentials: "arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role."
-        uri: "arn:aws:apigateway:us-east-1:lambda:path//2015-03-31/functions/arn:aws:lambda:us-east-1:742872122332:function:rootMeanSquare/invocations"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path//2015-03-31/functions/arn:aws:lambda:us-east-1:742872122332:function:rootMeanSquare:dev/invocations"
         responses:
           default:
             statusCode: "200"
