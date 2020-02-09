@@ -24,7 +24,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - version=0.1.1
+      - version=0.2.1
       - date=$(date +%Y-%m-%d_%H_%M_%S)
       - cp ./dsp-aws-lambda-dist.zip ./dsp-aws-lambda-dist-$version.zip
       - cp ./swagger/dsp-rest-api-gateway.yaml ./swagger-$version.yaml

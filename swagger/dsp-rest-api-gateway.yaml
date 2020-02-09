@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  version: "2020-02-08T18:30:59Z"
+  version: "2020-02-09T16:19:14Z"
   title: "DSP Engine API"
 host: "api.lambda.dsp-engine.vibraneur.com"
 schemes:
@@ -43,6 +43,8 @@ paths:
           description: "200 response"
           schema:
             $ref: "#/definitions/SingleDigitDspDataOutput"
+      security:
+      - api_key: []
       x-amazon-apigateway-request-validator: "Validate body"
       x-amazon-apigateway-integration:
         credentials: "arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role."
@@ -99,6 +101,8 @@ paths:
           description: "200 response"
           schema:
             $ref: "#/definitions/ComplexNumberResultEncapsulation"
+      security:
+      - api_key: []
       x-amazon-apigateway-request-validator: "Validate body"
       x-amazon-apigateway-integration:
         credentials: "arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role."
@@ -155,6 +159,8 @@ paths:
           description: "200 response"
           schema:
             $ref: "#/definitions/SingleDigitDspDataOutput"
+      security:
+      - api_key: []
       x-amazon-apigateway-request-validator: "Validate body"
       x-amazon-apigateway-integration:
         credentials: "arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role."
@@ -182,6 +188,8 @@ paths:
           description: "200 response"
           schema:
             $ref: "#/definitions/SingleDigitDspDataOutput"
+      security:
+      - api_key: []
       x-amazon-apigateway-request-validator: "Validate body"
       x-amazon-apigateway-integration:
         credentials: "arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role."
@@ -192,6 +200,40 @@ paths:
         passthroughBehavior: "when_no_match"
         httpMethod: "POST"
         type: "aws"
+  /v1/algorithms/shape:
+    post:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "DspDataInput"
+          required: true
+          schema:
+            $ref: "#/definitions/DspDataInput"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/SingleDigitDspDataOutput"
+      security:
+        - api_key: []
+      x-amazon-apigateway-request-validator: "Validate body"
+      x-amazon-apigateway-integration:
+        credentials: "arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role."
+        uri: "arn:aws:apigateway:us-east-1:lambda:path//2015-03-31/functions/arn:aws:lambda:us-east-1:742872122332:function:shape:dev/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "aws"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"
 definitions:
   SingleDigitDspDataOutput:
     type: "object"

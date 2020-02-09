@@ -15,7 +15,7 @@ Resources:
       FunctionName: rootMeanSquare
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.0.1.zip
+      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.2.1.zip
       Handler: src/algorithms/rms/RMS.lambda_entry
       Runtime: python3.7
       DeploymentPreference:
@@ -27,7 +27,7 @@ Resources:
       FunctionName: kurtosis
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.0.1.zip
+      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.2.1.zip
       Handler: src/algorithms/kurtosis/Kurtosis.lambda_entry
       Runtime: python3.7
       DeploymentPreference:
@@ -39,7 +39,7 @@ Resources:
       FunctionName: fft
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.0.1.zip
+      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.2.1.zip
       Handler: src/algorithms/fft/FFT.lambda_entry
       Runtime: python3.7
       Layers:
@@ -54,8 +54,20 @@ Resources:
       FunctionName: crest
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.0.1.zip
+      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.2.1.zip
       Handler: src/algorithms/crest/Crest.lambda_entry
+      Runtime: python3.7
+      DeploymentPreference:
+        Type:
+          Ref: DeployPreference
+  shape:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: shape
+      AutoPublishAlias: dev
+      Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
+      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.2.1.zip
+      Handler: src/algorithms/shape/Shape.lambda_entry
       Runtime: python3.7
       DeploymentPreference:
         Type:
