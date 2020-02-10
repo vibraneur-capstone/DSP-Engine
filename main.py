@@ -26,6 +26,4 @@ FFT = VapeAlgo.Algorithm(AlgorithmID.FFT)
 Crest = VapeAlgo.Algorithm(AlgorithmID.CREST)
 Shape = VapeAlgo.Algorithm(AlgorithmID.SHAPE)
 
-DSP.add(FFT)
-
 DSP.run(data)

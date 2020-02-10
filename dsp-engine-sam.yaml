@@ -15,7 +15,7 @@ Resources:
       FunctionName: rootMeanSquare
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri: s3://vape-artifacts/dsp-lambda-engine/dsp-aws-lambda-dist.zip
+      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.0.1.zip
       Handler: src/algorithms/rms/RMS.lambda_entry
       Runtime: python3.7
       DeploymentPreference:
@@ -27,7 +27,7 @@ Resources:
       FunctionName: kurtosis
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri: s3://vape-artifacts/dsp-lambda-engine/dsp-aws-lambda-dist.zip
+      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.0.1.zip
       Handler: src/algorithms/kurtosis/Kurtosis.lambda_entry
       Runtime: python3.7
       DeploymentPreference:
@@ -39,11 +39,24 @@ Resources:
       FunctionName: fft
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri: s3://vape-artifacts/dsp-lambda-engine/dsp-aws-lambda-dist.zip
+      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.0.1.zip
       Handler: src/algorithms/fft/FFT.lambda_entry
       Runtime: python3.7
       Layers:
         - arn:aws:lambda:us-east-1:668099181075:layer:AWSLambda-Python37-SciPy1x:2
+      DeploymentPreference:
+        Type:
+          Ref: DeployPreference
+
+  crest:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: crest
+      AutoPublishAlias: dev
+      Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
+      CodeUri: s3://vape-artifacts/vape-dsp-lambda-engine/dsp-aws-lambda-dist-0.0.1.zip
+      Handler: src/algorithms/crest/Crest.lambda_entry
+      Runtime: python3.7
       DeploymentPreference:
         Type:
           Ref: DeployPreference
