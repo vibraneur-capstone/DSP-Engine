@@ -18,20 +18,19 @@ def lambda_entry(event, context):
 
 
 def run(data):
-    # TODO:::: this computes a double sided spectrum. We may wanna compute only for single sided
-    fft = parse_complex_number(np.fft.fft(data))
+    # Calculate magnitude of double sided spectrum
+    fft = magnitude(np.fft.fft(data))
 
-    #splits the fft into the single sided spectrum
+    # Splits the FFT into the single sided spectrum
     single_fft = fft[len(fft)//2:]
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    # TODO:::: incorporate single spectrum fft variable into the results
-    return ResultEncapsulation(result=fft, inputData=data, resultType=SupportedAlgorithms.FFT)
+    return ResultEncapsulation(result=single_fft, inputData=data, resultType=SupportedAlgorithms.FFT)
 
 
-def parse_complex_number(complex_arr):
-    parsed = []
+# Takes the absolute value of each element in a complex array and returns a new array
+def magnitude(complex_arr):
+    mag = []
     for num in complex_arr:
-        complex_str = str(num).strip().replace("(", '', 1).replace(")", '', 1)
-        parsed.append(complex_str)
-    return parsed
+        mag.append(abs(num))
+    return mag

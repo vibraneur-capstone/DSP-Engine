@@ -1,5 +1,4 @@
-# Testing code for checking the functionality of the DSP Engine and running scripts quickly.
-# Will most likely be converted to the gateway for integrating the DSP module to the full project
+# Testing code for checking the functionality of the DSP Engine and running scripts quickly on local machines.
 #
 # Richard Walmsley
 # 07/02/2020
