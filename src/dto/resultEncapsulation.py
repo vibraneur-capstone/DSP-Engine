@@ -26,7 +26,7 @@ class ResultEncapsulation:
     def toJsonString(self):
         return {
             "timestamp": self.timestamp,
-            "inputData": self.inputData,
+            "inputData": [],
             "result": self.result,
             "resultType": self.resultType,
             "description": self.description
