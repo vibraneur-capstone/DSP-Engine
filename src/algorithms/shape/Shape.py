@@ -1,4 +1,3 @@
-import json
 import math
 import src.dto.resultEncapsulation as Vape
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
